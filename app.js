@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             name: 'blackCat',
-            img: 'images/blackCat'
+            img: 'images/blackCat.png'
         },
         {
             name: 'blackCat',
@@ -31,6 +31,14 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             name: 'brownCat',
             img: 'images/brownCat.png'
+        },
+        {
+            name: 'whiteCatScary',
+            img: 'images/whiteCatScary.png'
+        },
+        {
+            name: 'whiteCatScary',
+            img: 'images/whiteCatScary.png'
         }
     ]
 
@@ -38,6 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cardArray.sort(() => 0.5 - Math.random())
     
     const grid = document.querySelector('.grid')
+    grid.style.align-items = "center";
     const resultDisplayed = document.querySelector('#result')
     var cardsChosen = window.cardsChosen || []
     var cardsChosenId = window.cardsChosen || []
