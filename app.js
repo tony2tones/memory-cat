@@ -1,28 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
     // card options
     const cardArray = [{
-            name: 'cat1',
-            img: 'images/cat1'
+            name: 'colorCat',
+            img: 'images/colorCat.png'
         },
         {
-            name: 'cat1',
-            img: 'images/cat1'
+            name: 'colorCat',
+            img: 'images/colorCat.png'
         },
         {
-            name: 'cat2',
-            img: 'images/cat2'
+            name: 'blackCat',
+            img: 'images/blackCat'
         },
         {
-            name: 'cat2',
-            img: 'images/cat2'
+            name: 'blackCat',
+            img: 'images/blackCat'
         },
         {
-            name: 'cat3',
-            img: 'images/cat3'
+            name: 'whiteCat',
+            img: 'images/whiteCat.png'
         },
         {
-            name: 'cat3',
-            img: 'images/cat3'
+            name: 'whiteCat',
+            img: 'images/whiteCat.png'
         },
         {
             name: 'cat4',
@@ -38,7 +38,10 @@ document.addEventListener('DOMContentLoaded', () => {
     cardChosenId = [];
     cardsWon = [];
     const grid = document.querySelector('.grid');
-
+    const resultDisplayed = document.querySelector('#result');
+    let cardsChosen = [];
+    let cardsChosenId = [];
+    let cardsWon = [];
     // create your board
 
     function createBoard() {
@@ -57,13 +60,22 @@ document.addEventListener('DOMContentLoaded', () => {
     function checkForMatch() {
         let cards = document.querySelectorAll('img');
         const optionOneId = cardsChosenId[0];
-        const optionsTwoId = cardsChosenId[1];
+        const optionTwoId = cardsChosenId[1];
         if (cardsChosenId[0] === cardsChosen[1]) {
             alert('You found a match');
-            cards[optionOneId].setAttribute('src', 'images/white.png');
-            cards[optionsTwoId].setAttribute('src', 'images/white.png');
-            cardsWon.push
-
+            cards[optionOneId].setAttribute('src', 'images/whiteCat.png');
+            cards[optionTwoId].setAttribute('src', 'images/whiteCat.png');
+            cardsWon.push(cardsChosen)
+        } else {
+            cards[optionOneId].setAttribute('src', 'images/back.png');
+            cards[optionTwoId].setAttribute('src', 'images/back.png');
+            alert('Sorry, try again');
+        }
+        cardsChosen = [];
+        cardsChosenId = [];
+        resultDisplayed.textContent = cardsWon.length
+        if (cardsWon.length === cardsArray.length/2) {
+            resultDisplayed.textContent = 'Congratulations! You Found all the matches';
         }
     }
 
